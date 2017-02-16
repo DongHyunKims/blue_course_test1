@@ -33,7 +33,7 @@
         }
 
         return num.reduce(function(pre,post,idx){
-            if(post === 4) post = post-1;
+            if(post === 4) post--;
             if(idx === 0)
                 return post * 4;
             if(num.length-1 === idx)
