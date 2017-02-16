@@ -27,9 +27,9 @@
         var num =  str.split("").map(Number);
         if(num.length === 1){
             if(num[0] === 4){
-                return Number(num[0]-1);
+                return num[0]-1;
             }
-            return Number(num[0]);
+            return num[0];
         }
 
         return num.reduce(function(pre,post,idx){
