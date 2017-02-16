@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+</head>
+<body>
+
+
+
+
+<script>
+    //10진수 숫자를 1240나라의 숫자로 바꾸는 함수
+    function to1240(num) {
+        var num1 = parseInt(num/4);
+        var num2 = num%4;
+        if(num2 === 3) num2++;
+        if(num1 === 0) return String(num2);
+        return to1240(num1) + String(num2);
+
+    }
+
+
+
+    // 1240 나라의 숫자를 다시 10진수 숫자로 바꾸는 함수
+    function toDec(str) {
+        var num =  str.split("").map(Number);
+        if(num.length === 1){
+            if(num[0] === 4){
+                return Number(num[0]-1);
+            }
+            return Number(num[0]);
+        }
+
+        return num.reduce(function(pre,post,idx){
+            if(post === 4) post = post-1;
+            if(idx === 0)
+                return post * 4;
+            if(num.length-1 === idx)
+                return post + pre;
+            return (post + pre) * 4;
+        },0)
+    }
+
+    var num1240 = to1240(1000);
+    var num = toDec(num1240);
+
+    console.log("num1240",num1240);
+    console.log("num",num);
+</script>
+</body>
+</html>
